@@ -43,6 +43,17 @@ public class CacheConfiguration {
             createCache(cm, io.github.jhipster.application.domain.User.class.getName());
             createCache(cm, io.github.jhipster.application.domain.Authority.class.getName());
             createCache(cm, io.github.jhipster.application.domain.User.class.getName() + ".authorities");
+            createCache(cm, io.github.jhipster.application.domain.Producto.class.getName());
+            createCache(cm, io.github.jhipster.application.domain.Producto.class.getName() + ".tags");
+            createCache(cm, io.github.jhipster.application.domain.Producto.class.getName() + ".nutrientesAdicionales");
+            createCache(cm, io.github.jhipster.application.domain.NutrientesAdicionales.class.getName());
+            createCache(cm, io.github.jhipster.application.domain.NutrientesAdicionales.class.getName() + ".productos");
+            createCache(cm, io.github.jhipster.application.domain.Tags.class.getName());
+            createCache(cm, io.github.jhipster.application.domain.Tags.class.getName() + ".productos");
+            createCache(cm, io.github.jhipster.application.domain.UnidadMedida.class.getName());
+            createCache(cm, io.github.jhipster.application.domain.TipoUnidadMedida.class.getName());
+            createCache(cm, io.github.jhipster.application.domain.Marca.class.getName());
+            createCache(cm, io.github.jhipster.application.domain.Categoria.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
