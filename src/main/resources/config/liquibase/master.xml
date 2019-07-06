@@ -14,6 +14,16 @@
     <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190706184354_added_entity_SugerenciaProducto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190706184355_added_entity_NutrientesAdicionales.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190706184356_added_entity_Tags.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190706184357_added_entity_UnidadMedida.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190706184358_added_entity_TipoUnidadMedida.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190706184359_added_entity_Marca.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190706184400_added_entity_Categoria.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190706184354_added_entity_constraints_SugerenciaProducto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190706184355_added_entity_constraints_NutrientesAdicionales.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190706184357_added_entity_constraints_UnidadMedida.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

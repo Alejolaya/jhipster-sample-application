@@ -1,0 +1,86 @@
+entity SugerenciaProducto {
+	nombreAlimento String
+  //  marca String
+    tamanoPorcion Float
+ //   unidadPorcion String
+    medidaCasera Float
+ //   unidadMedidaCasera String
+    valorEnergetico Float
+    caloriasGrasa Float
+    grasaTotal Float
+    grasaSaturada Float
+    grasaInsaturada Float
+    grasaTrans Float
+    colesterol Float
+    sodio Float
+    carbohidrato Float
+    fibraDietaria Float
+    fibraInsoluble Float
+    fibraSoluble Float
+    azucares Float
+    proteina Float
+    vitaminaA Float
+    vitaminaC Float
+    calcio Float
+    hierro Float
+//  categoria String
+    gluten Boolean
+    azucar Boolean
+    integral Boolean
+    fechaCreacion Instant
+    fechaUltimaModificacion Instant 
+    estadoActivo Boolean
+    codigoDeBarras String
+    imagen String
+    observaciones String
+    estadoSugerencia EstadoSugerencia
+    
+}
+entity NutrientesAdicionales{
+	descripcion String
+    valor String
+}
+
+entity Tags{
+	descripcion String
+}
+entity UnidadMedida{
+	abreviacion String
+    descripcion String
+    valorConversion Float//factor multiplicador para convertir a la unidad base
+}
+
+entity TipoUnidadMedida{
+	nombre String //Unidad comun eje: Liquido, peso, distancia, otro
+}
+
+entity Marca{
+	nombreMarca String
+}
+
+entity Categoria{
+	nombreCategoria String
+    descripcion String    
+}
+
+enum EstadoSugerencia {
+	APROBADO, RECHAZADO, VALIDANDO
+}
+
+relationship ManyToOne{
+UnidadMedida{unidadBase(nombre)} to TipoUnidadMedida
+}
+relationship ManyToOne{
+NutrientesAdicionales{unidadPorcion(abreviacion)} to UnidadMedida
+}
+relationship ManyToOne{
+SugerenciaProducto{unidadPorcion(abreviacion)} to UnidadMedida,
+SugerenciaProducto{unidadMedidaCasera(abreviacion)} to UnidadMedida,
+SugerenciaProducto{marca(nombreMarca)} to Marca,
+SugerenciaProducto{categoria(nombreCategoria)} to Categoria
+}
+
+relationship ManyToMany{
+SugerenciaProducto{tags(descripcion)} to Tags{sugerenciaProducto}
+SugerenciaProducto{nutrientesAdicionales(descripcion)} to NutrientesAdicionales{sugerenciaProducto}
+}
