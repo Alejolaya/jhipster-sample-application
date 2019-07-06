@@ -1,0 +1,74 @@
+entity Usuario {
+	nombre1 String required
+	nombre2 String
+	apellido1 String required
+	apellido2 String
+	direccion String
+	correo String required
+	password String required
+	genero Generoenum required
+	nombreUsuario String required
+	fechaNacimiento LocalDate required
+	talla Integer
+	peso Integer
+	perimetroCintura Integer
+	//proposito String required
+	//condicionMedica String
+	fechaRegistro Instant required
+	//nacionalidad String
+	numeroTelefonico String required
+	//productosFavoritos String
+	//usuariosFavoritos String
+}
+enum Generoenum{
+F, M, O
+}
+
+entity Proposito {
+	nombre String required
+	descripcion String required
+}
+
+entity CondicionMedica {
+	nombre String
+    descripcion String
+}
+
+entity Nacionalidad {
+	descripcion String
+}
+
+entity ProductosFavoritos{
+	nombre String
+    idProducto BigDecimal 
+}
+
+entity UsuariosFavoritos {
+	nombre String
+    idUsuario BigDecimal
+}
+
+
+relationship OneToOne {
+	Usuario{nombre} to Proposito required
+    Usuario to Nacionalidad{descripcion}
+    Usuario to UsuariosFavoritos{nombre}
+    //Usuario{CondicionMedica} to CondicionMedica
+}
+relationship ManyToMany{
+	Usuario to CondicionMedica{nombre} required
+    Usuario to ProductosFavoritos{nombre}
+}
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+//paginate Job with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+//service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
